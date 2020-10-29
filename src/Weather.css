@@ -3,11 +3,19 @@
 }
 
 .Weather .temperature {
-  font-weight: 500;
-  font-size: 38px;
+  font-weight: 600;
+  font-size: 40px;
 }
 
 .Weather .celsius {
   position: relative;
   top: -15px;
+}
+
+.realfeel {
+  font-size: small;
+}
+
+.humidity {
+  font-size: small;
 }
