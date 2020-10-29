@@ -1,0 +1,13 @@
+.row {
+  margin: 20px 0 20px 0;
+}
+
+.Weather .temperature {
+  font-weight: 500;
+  font-size: 38px;
+}
+
+.Weather .celsius {
+  position: relative;
+  top: -15px;
+}

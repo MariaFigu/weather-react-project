@@ -1,0 +1,12 @@
+.container {
+  border: 1px solid grey;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.App {
+  margin: 30px auto;
+}
+
+.App footer {
+  font-size: 11px;
+}
