@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import axios from "axios"
+import FormattedDate from "./FormattedDate"
 import "./Weather.css"
 
 export default function Weather(props){
@@ -34,7 +35,7 @@ return (
             <div className="row">
                 <div className="col-5">               
                 <h1>Lisboa</h1>
-            <div>Thu, 29 Oct 2020</div>
+            <div><FormattedDate date={data.date} /> </div>
             </div>
             <div className="col-4">
 <img src="https://ssl.gstatic.com/onebox/weather/64/rain.png" alt="rainy" />
