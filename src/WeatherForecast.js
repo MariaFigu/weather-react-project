@@ -14,14 +14,14 @@ function handleResponse (response){
     setLoaded (true);
 }
 
-if (loaded) {
+if (loaded && props.city === forecast.city.name) {
     return (
         <div className="WeatherForecast row">
-        < WeatherForecastHours data={forecast.list[0]} />
-        < WeatherForecastHours data={forecast.list[1]} />
-        < WeatherForecastHours data={forecast.list[2]} />
-        < WeatherForecastHours data={forecast.list[3]} />
-        < WeatherForecastHours data={forecast.list[4]} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[0]} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[1]} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[2]} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[3]} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[4]} />
         </div>
     )
 } else {

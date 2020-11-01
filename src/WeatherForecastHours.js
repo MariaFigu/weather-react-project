@@ -9,15 +9,18 @@ return `${hours}:00`
     }
 
     function showTemp(){
-        let temp = Math.round(props.data.main.temp);
-        return `${temp}C`
+        if(props.controlUnit.unit === "celsius"){
+            return Math.round(props.data.main.temp);
+        }else{
+            return Math.round((props.data.main.temp * 9)/5 + 32);
+        }
     }
     
     return(
-        <div className ="ForecastCanvas">
+        <div className ="ForecastWidget col">
             {showHours()}
-            <WeatherIcon code ={props.data.weather[0].icon} />
-            {showTemp()} 
+            <WeatherIcon className="ForecastIcon" code ={props.data.weather[0].icon} />
+            {showTemp()}° 
         </div>
     )
 }

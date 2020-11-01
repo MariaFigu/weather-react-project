@@ -1,4 +1,8 @@
 .WeatherIcon {
   width: 100px;
-  height: 100px;
+  height: 105px;
+}
+
+.WeatherIcon svg {
+  border-radius: 15px;
 }

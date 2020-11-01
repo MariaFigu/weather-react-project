@@ -1,0 +1,21 @@
+.WeatherInfo {
+  margin-bottom: 3rem;
+}
+
+.CityDate {
+  margin-top: 34px;
+}
+
+.WeatherTemp {
+  margin-top: 24px;
+}
+
+h1 {
+  margin-top: -10px;
+  margin-bottom: 14px;
+  font-size: 54px;
+}
+
+.Feeling {
+  font-size: 14px;
+}

@@ -9,6 +9,11 @@ export default function Weather(props){
     const [loaded, setLoaded] = useState (false)
     const [city, setCity] = useState (props.city)
     const [data, setData] = useState({})
+   const [unit, setUnit] = useState ("celsius");
+   let controlUnit = {
+       unit: unit,
+       setUnit: setUnit
+   }
 
     function getResponse (response){
         setData ({
@@ -41,16 +46,16 @@ function handleCity(event){
 return (
         <div className="Weather">
             <form onSubmit = {handleSubmit}>
-                <div className="row">
+                <div className="row mt-0">
                     <div className="col-9">
                 <input type="search" placeholder="Enter a city..." className="form-control" autoFocus="on" onChange={handleCity} name="city"/>
                 </div>
                 <div className="col-3">
-                    <input type="submit" value="Search" className="btn btn-primary" />
+                    <input type="submit" value="🔎" className="btn btn-primary" />
             </div></div>
             </form>
-            <WeatherData data={data}/>
-            <WeatherForecast city={data.city} />
+            <WeatherData controlUnit={controlUnit} data={data}/>
+            <WeatherForecast controlUnit={controlUnit} city={data.city} />
             
 </div>
         

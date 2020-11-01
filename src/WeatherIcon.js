@@ -27,7 +27,7 @@ export default function WeatherIcon(props){
     }
     
     return  (
-    <div className = "WeatherIcon"> 
+    <div className = {props.className} >
       {codeMapping[props.code]} 
     </div>
   )
