@@ -1,10 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import FormattedDate from "./FormattedDate"
 import WeatherIcon from "./WeatherIcon"
 import WeatherTemp from "./WeatherTemp"
 
 export default function WeatherData(props){
-
+    
     return(
     <div className="WeatherInfo">
     <div className="row">
@@ -19,7 +19,8 @@ export default function WeatherData(props){
         </div>
         <div className="col-3">
             < WeatherTemp celsius = {props.data.temp} />
-        <div className="realfeel">Real feel:{Math.round(props.data.feeling)}°</div>
+                <div className="realfeel">Real feel:{Math.round(props.data.feeling)}°</div>
+        
         <div className="humidity">Humidity:{props.data.humidity}%</div>
            </div> </div> </div>
            )
