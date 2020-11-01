@@ -1,7 +1,9 @@
 import React, {useState} from "react"
-import WeatherIcon from "./WeatherIcon";
+import WeatherForecastHours from "./WeatherForecastHours"
 
 import axios from "axios"
+import "./WeatherForecast.css"
+
 
 export default function WeatherForecast(props){
 const [loaded, setLoaded] = useState (false)
@@ -14,15 +16,16 @@ function handleResponse (response){
 
 if (loaded) {
     return (
-        <div className="row">
-            <div className ="col">
-            {new Date(forecast.list[0].dt * 1000).getHours()}:00
-            <WeatherIcon code ={forecast.list[0].weather[0].icon} />
-            {Math.round(forecast.list[0].main.temp)}C 
-        </div> </div>
+        <div className="WeatherForecast row">
+        < WeatherForecastHours data={forecast.list[0]} />
+        < WeatherForecastHours data={forecast.list[1]} />
+        < WeatherForecastHours data={forecast.list[2]} />
+        < WeatherForecastHours data={forecast.list[3]} />
+        < WeatherForecastHours data={forecast.list[4]} />
+        </div>
     )
 } else {
-let url= `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=c1523e5633a5a3610a4671a851484050&units=metric`;
+    let url= `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=c1523e5633a5a3610a4671a851484050&units=metric`;
         axios.get(url).then(handleResponse);
         
     return null;
