@@ -1,5 +1,7 @@
 import React from "react"
 import FormattedDate from "./FormattedDate"
+import WeatherIcon from "./WeatherIcon"
+import WeatherTemp from "./WeatherTemp"
 
 export default function WeatherData(props){
 
@@ -11,14 +13,13 @@ export default function WeatherData(props){
             <div><FormattedDate date={props.data.date} /> </div>
             </div>
             <div className="col-4">
-<img src="https://ssl.gstatic.com/onebox/weather/64/rain.png" alt="rainy" />
+< WeatherIcon code="{props.data.icon" alt="props.data.description" />
     <div className="text-capitalize"> {props.data.description}
         </div> 
         </div>
         <div className="col-3">
-            <span className="temperature">{Math.round(props.data.temp)}</span>
-            <span className="celsius">°C</span>
-        <div className="realfeel">Real feel:{Math.round(props.data.feeling)}°C</div>
+            < WeatherTemp celsius = {props.data.temp} />
+        <div className="realfeel">Real feel:{Math.round(props.data.feeling)}°</div>
         <div className="humidity">Humidity:{props.data.humidity}%</div>
            </div> </div> </div>
            )
