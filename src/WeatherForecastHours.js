@@ -1,6 +1,7 @@
 import React from "react"
 import WeatherIcon from "./WeatherIcon";
 
+
 export default function WeatherForecastHours(props){
     function showHours(){
 let date = new Date((props.data.dt + props.timezone)* 1000);
@@ -18,7 +19,7 @@ return `${hours}:00`
     
     return(
         <div className ="ForecastWidget col">
-            {showHours()}
+            <strong>{showHours()}</strong>
             <WeatherIcon className="ForecastIcon" code ={props.data.weather[0].icon} />
             {showTemp()}° 
         </div>

@@ -4,16 +4,42 @@
   margin: 0 auto;
   padding: 15px;
   border-radius: 15px;
+  position: relative;
+  overflow: hidden;
 }
 
 .container.night {
-  background: linear-gradient(165deg, #316dc2, rgba(255, 0, 0, 0) 69%),
-    linear-gradient(165deg, #4e95d3, rgba(255, 0, 0, 0) 58%);
+  background: linear-gradient(206deg, #001a3e, rgba(255, 0, 0, 0) 75%),
+    linear-gradient(165deg, #4e95d3, rgba(255, 0, 0, 0) 100%);
+}
+
+.container.night:before {
+  content: "";
+  position: absolute;
+  box-shadow: 0px 8px 16px 8px rgba(255, 255, 255, 0.1);
+  width: 140px;
+  height: 140px;
+  background: #e6e9fc;
+  border-radius: 50%;
+  right: -22px;
+  top: -58px;
 }
 
 .container.day {
-  background: linear-gradient(165deg, #f59a28, rgba(255, 0, 0, 0) 69%),
-    linear-gradient(165deg, #fce9c1, rgba(255, 0, 0, 0) 58%);
+  background: linear-gradient(-138deg, #50dcff, rgba(255, 0, 0, 0) 105%),
+    linear-gradient(-138deg, #9eb8bc, rgba(255, 0, 0, 0) 100%);
+}
+
+.container.day:before {
+  content: "";
+  position: absolute;
+  box-shadow: 0px 8px 16px 8px rgb(163 32 32 / 19%);
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(#f1d6a4, #f39e4a);
+  border-radius: 50%;
+  right: -22px;
+  top: -58px;
 }
 
 .row {
@@ -22,12 +48,12 @@
 
 .Weather .temperature {
   font-weight: 600;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .Weather .celsius {
   position: relative;
-  top: -15px;
+  top: -20px;
 }
 
 .realfeel {
