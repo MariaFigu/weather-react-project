@@ -22,7 +22,7 @@ export default function WeatherData(props){
                 <h1>{props.data.city}</h1>
             <div><FormattedDate date={props.data.date} /> </div>
             </div>
-            <div className="col-3">
+            <div className="col-3 p-0 align-middle">
 < WeatherIcon className="WeatherIcon" code= {props.data.icon}  alt= {props.data.description} />
     <div className="Feeling text-capitalize"> {props.data.description}
         </div> 

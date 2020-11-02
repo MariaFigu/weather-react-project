@@ -8,20 +8,22 @@ import "./WeatherForecast.css"
 export default function WeatherForecast(props){
 const [loaded, setLoaded] = useState (false)
 const [forecast,setForecast] = useState (null)
+const [timezone,setTimezone] = useState (null)
 
 function handleResponse (response){
     setForecast (response.data);
+    setTimezone(response.data.city.timezone)
     setLoaded (true);
 }
 
 if (loaded && props.city === forecast.city.name) {
     return (
         <div className="WeatherForecast row">
-        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[0]} />
-        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[1]} />
-        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[2]} />
-        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[3]} />
-        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[4]} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[0]} timezone={timezone} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[1]} timezone={timezone} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[2]} timezone={timezone} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[3]} timezone={timezone} />
+        < WeatherForecastHours controlUnit={props.controlUnit} data={forecast.list[4]} timezone={timezone} />
         </div>
     )
 } else {

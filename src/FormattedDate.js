@@ -2,9 +2,9 @@ import React from "react"
 
 export default function FormattedDate(props){
     let days= ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    let day = days[props.date.getDay()];
+    let day = days[props.date.getUTCDay()];
 
-    let number = props.date.getDate()
+    let number = props.date.getUTCDate()
 
     let months = [
     "Jan",
@@ -20,12 +20,12 @@ export default function FormattedDate(props){
     "Nov",
     "Dec",
   ];
-  let month = months[props.date.getMonth()]
+  let month = months[props.date.getUTCMonth()]
 
-  let year = props.date.getFullYear()
+  let year = props.date.getUTCFullYear()
 
-  let hours = props.date.getHours()
-  let minutes = props.date.getMinutes()
+  let hours = props.date.getUTCHours()
+  let minutes = props.date.getUTCMinutes()
   if (minutes < 10){
       minutes = `0${minutes}`
   }

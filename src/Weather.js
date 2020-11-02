@@ -10,6 +10,7 @@ export default function Weather(props){
     const [city, setCity] = useState (props.city)
     const [data, setData] = useState({})
    const [unit, setUnit] = useState ("celsius");
+   const [day, setDay] = useState ("container");
    let controlUnit = {
        unit: unit,
        setUnit: setUnit
@@ -21,7 +22,7 @@ export default function Weather(props){
             description: response.data.weather[0].description,
             feeling: response.data.main.feels_like,
             humidity: response.data.main.humidity,
-            date: new Date (response.data.dt * 1000),
+            date: new Date ((response.data.dt + response.data.timezone) * 1000),
             city: response.data.name,
             icon: response.data.weather[0].icon, 
         })
@@ -42,22 +43,36 @@ function handleCity(event){
     setCity(event.target.value)
 }
 
+function isDay() {
+    if(data.date.getUTCHours() > 6 && data.date.getUTCHours() < 18){
+        return "container day";
+    }else{
+        return "container night";
+    }
+}
+
     if (loaded){
 return (
+    
+      <div className={isDay()}>
         <div className="Weather">
             <form onSubmit = {handleSubmit}>
                 <div className="row mt-0">
-                    <div className="col-9">
+                    <div className="col-6">
                 <input type="search" placeholder="Enter a city..." className="form-control" autoFocus="on" onChange={handleCity} name="city"/>
                 </div>
                 <div className="col-3">
-                    <input type="submit" value="🔎" className="btn btn-primary" />
+                    <input type="submit" value="🔎" className="btn btn-outline-light" />
             </div></div>
             </form>
             <WeatherData controlUnit={controlUnit} data={data}/>
             <WeatherForecast controlUnit={controlUnit} city={data.city} />
             
-</div>
+        </div>
+        <footer>
+          Open-source code on <a href="https://github.com/MariaFigu/weather-react-project">GitHub</a> and hosted at <a href="https://inspiring-bhabha-4e59c4.netlify.app/">Netlify</a>, by Maria Figueiredo
+        </footer>
+    </div>
         
     )
     } else {

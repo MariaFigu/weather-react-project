@@ -3,8 +3,8 @@ import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecastHours(props){
     function showHours(){
-let date = new Date(props.data.dt * 1000);
-let hours = date.getHours();
+let date = new Date((props.data.dt + props.timezone)* 1000);
+let hours = date.getUTCHours();
 return `${hours}:00`
     }
 

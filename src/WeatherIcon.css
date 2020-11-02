@@ -1,8 +1,11 @@
 .WeatherIcon {
-  width: 100px;
-  height: 105px;
+  width: 100%;
 }
 
 .WeatherIcon svg {
   border-radius: 15px;
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 105px;
 }
